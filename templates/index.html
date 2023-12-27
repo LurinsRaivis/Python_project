@@ -42,6 +42,7 @@
     <script>
         
         var map = L.map('map').setView([51.505, -0.09], 2);
+
         var geojsonLayer;
         var currentCountry = null;
 
@@ -135,9 +136,14 @@
                             return {color: "#000000", weight: 1, fillOpacity: 0};
                         }
                     }).addTo(map);
-                    getRandomCountriesAndHighlight();
+
+                    getRandomCountriesAndHighlight(); // Call this after the GeoJSON layer is added
+                })
+                .catch(error => {
+                    console.error('Error loading GeoJSON:', error);
                 });
         }
+
 
         function initializeEmptyMap() {
             if (geojsonLayer) {
@@ -187,21 +193,25 @@
                 closeAllLists(e.target);
             });
         }
-        function testGeoJSON() {
-            fetch('/static/countries.geojson')
-                .then(response => response.json())
-                .then(data => {
-                    L.geoJSON(data).addTo(map);
-                });
-        }
-
-        // Call this function directly to test
-        testGeoJSON();
-
+    
         autocomplete(document.getElementById("countryInput"));
 
         window.onload = function() {
-            document.getElementById('map').style.display = 'none';
+            map.setView([51.505, -0.09], 2);  // Set the initial position and zoom level of the map
+
+            // Load and display the GeoJSON file
+            fetch('/static/countries.geojson')
+                .then(response => response.json())
+                .then(data => {
+                    L.geoJSON(data, {
+                        style: function(feature) {
+                            return {color: "#000000", weight: 1, fillOpacity: 0};
+                        }
+                    }).addTo(map);
+                })
+                .catch(error => {
+                    console.error('Error loading GeoJSON:', error);
+                });
         };
 
     </script>
