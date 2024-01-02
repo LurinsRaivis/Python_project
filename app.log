@@ -151,3 +151,56 @@
 2024-01-02 16:52:23,485:INFO:Data successfully fetched for Daugavpils
 2024-01-02 16:55:05,044:INFO:Fetching data for city: Riga
 2024-01-02 16:55:05,380:INFO:Data successfully fetched for Riga
+2024-01-02 19:48:41,210:INFO:Fetching data for city: Riga
+2024-01-02 19:48:41,238:INFO:Data successfully fetched for Riga
+2024-01-02 19:49:02,741:INFO:Fetching data for city: Riga
+2024-01-02 19:49:02,748:INFO:Data successfully fetched for Riga
+2024-01-02 19:50:47,218:INFO:Fetching data for city: Riga
+2024-01-02 19:50:47,236:INFO:Data successfully fetched for Riga
+2024-01-02 19:50:50,209:INFO:Fetching data for city: Riga
+2024-01-02 19:50:50,216:INFO:Data successfully fetched for Riga
+2024-01-02 19:51:06,425:INFO:Application closed
+2024-01-02 19:51:15,555:INFO:Fetching data for city: Riga
+2024-01-02 19:51:15,931:INFO:Data successfully fetched for Riga
+2024-01-02 19:51:16,660:INFO:Fetching data for city: Riga
+2024-01-02 19:51:16,668:INFO:Data successfully fetched for Riga
+2024-01-02 19:54:58,646:INFO:Fetching data for city: Riga
+2024-01-02 19:54:58,654:INFO:Data successfully fetched for Riga
+2024-01-02 19:55:47,636:INFO:Fetching data for city: Riga
+2024-01-02 19:55:47,655:INFO:Data successfully fetched for Riga
+2024-01-02 19:55:47,756:ERROR:Error fetching data for Riga: name 'tk' is not defined
+2024-01-02 19:59:37,419:INFO:Fetching data for city: Riga
+2024-01-02 19:59:37,427:INFO:Data successfully fetched for Riga
+2024-01-02 20:12:02,469:INFO:Fetching data for city: Riga
+2024-01-02 20:12:02,485:INFO:Data successfully fetched for Riga
+2024-01-02 20:12:02,591:ERROR:Error fetching data for Riga: 'CTkLabel' object has no attribute 'delete'
+2024-01-02 20:15:31,487:INFO:Fetching data for city: Riga
+2024-01-02 20:15:31,505:INFO:Data successfully fetched for Riga
+2024-01-02 20:15:31,604:ERROR:Error fetching data for Riga: 'CTkLabel' object has no attribute 'set_text'
+2024-01-02 20:16:41,446:INFO:Fetching data for city: Riga
+2024-01-02 20:16:41,461:INFO:Data successfully fetched for Riga
+2024-01-02 20:16:55,123:INFO:Fetching data for city: Riga
+2024-01-02 20:16:55,469:INFO:Data successfully fetched for Riga
+2024-01-02 20:16:58,319:INFO:Fetching data for city: Riga
+2024-01-02 20:16:58,323:INFO:Data successfully fetched for Riga
+2024-01-02 20:17:13,686:INFO:Fetching data for city: Riga
+2024-01-02 20:17:13,880:INFO:Data successfully fetched for Riga
+2024-01-02 20:17:20,121:INFO:Fetching data for city: Riga
+2024-01-02 20:17:20,129:INFO:Data successfully fetched for Riga
+2024-01-02 20:17:23,322:INFO:Fetching data for city: Riga
+2024-01-02 20:17:23,330:INFO:Data successfully fetched for Riga
+2024-01-02 20:20:53,015:INFO:Fetching data for city: Riga
+2024-01-02 20:20:53,374:INFO:Data successfully fetched for Riga
+2024-01-02 20:20:55,482:INFO:Fetching data for city: Riga
+2024-01-02 20:20:55,494:INFO:Data successfully fetched for Riga
+2024-01-02 20:20:58,119:INFO:Fetching data for city: Riga
+2024-01-02 20:20:58,124:INFO:Data successfully fetched for Riga
+2024-01-02 20:20:59,543:INFO:Fetching data for city: Riga
+2024-01-02 20:20:59,549:INFO:Data successfully fetched for Riga
+2024-01-02 20:21:04,035:INFO:Fetching data for city: Riga
+2024-01-02 20:21:04,041:INFO:Data successfully fetched for Riga
+2024-01-02 20:21:06,762:INFO:Fetching data for city: Riga
+2024-01-02 20:21:06,768:INFO:Data successfully fetched for Riga
+2024-01-02 20:21:09,431:INFO:Fetching data for city: Riga
+2024-01-02 20:21:09,438:INFO:Data successfully fetched for Riga
+2024-01-02 20:21:13,576:INFO:CSV file save operation was canceled.
