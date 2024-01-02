@@ -1,0 +1,12 @@
+{
+    "Riga":         {"latitude": 56.9496,   "longitude": 24.1052},
+    "Daugavpils":   {"latitude": 55.8833,   "longitude": 26.5333},
+    "Liepaja":      {"latitude": 56.5047,   "longitude": 21.0109},
+    "Jelgava":      {"latitude": 56.65,     "longitude": 23.7128},
+    "Ventspils":    {"latitude": 57.3948,   "longitude": 21.5612},
+    "Rezekne":      {"latitude": 56.5103,   "longitude": 27.34},
+    "Valmiera":     {"latitude": 57.5411,   "longitude": 25.4275},
+    "Jekabpils":    {"latitude": 56.499,    "longitude": 25.8574},
+    "Tukums":       {"latitude": 56.9676,   "longitude": 23.1555},
+    "Bauska":       {"latitude": 56.4079,   "longitude": 24.1944}
+}
