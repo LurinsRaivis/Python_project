@@ -298,7 +298,6 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
         for date in dates_range:
             ax.axvline(date, color='grey', linestyle='dotted', alpha=0.5)
 
-
     # Set x-axis format
     ax.xaxis.set_major_locator(mdates.AutoDateLocator())
     ax.xaxis.set_major_formatter(mdates.ConciseDateFormatter(ax.xaxis.get_major_locator()))
@@ -316,11 +315,8 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
     ax.legend()
     fig.autofmt_xdate()  # Auto-format date labels
     
-
-
     print("Plotting data...")  # Debugging print statement
     
-
     def compute_city_stats(df, city_name, data_type, start_date, end_date):
         info_text = f"City: {city_name}\n"
             
