@@ -289,6 +289,15 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
     # Plot data for each city
     plot_city_data(df_city1, city_var.get(), 'black', chart_type_var.get())
     plot_city_data(df_city2, city2_var.get(), 'green', chart_type_var.get())
+    
+    period_label = compute_time_period(df_city1)[1]
+    period_code = compute_time_period(df_city1)[0]
+    if period_label in ["Day", "Week", "Month", "Year"]:
+    # Get the range of dates
+        dates_range = pd.date_range(start=start_date, end=end_date, freq=period_code)
+        for date in dates_range:
+            ax.axvline(date, color='grey', linestyle='dotted', alpha=0.5)
+
 
     # Set x-axis format
     ax.xaxis.set_major_locator(mdates.AutoDateLocator())
@@ -297,8 +306,6 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
     ax.set_xlabel('Date')
     ax.set_ylabel(f'{data_type.capitalize()}')
 
-    plot_title = compute_time_period(df_city1)[2]
-    
     title_city_part = city_var.get()
     if df_city2 is not None:
         title_city_part += f' and {city2_var.get()}'
@@ -309,6 +316,7 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
     ax.legend()
     fig.autofmt_xdate()  # Auto-format date labels
     
+
 
     print("Plotting data...")  # Debugging print statement
     
@@ -327,8 +335,8 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
             coldest_period = format_period(df_agg[data_type].idxmin(), period_label)
             average_temp = df_agg[data_type].mean()
 
-            info_text += f" Hottest {period_label}: {hottest_period} - Temperature: {hottest_temp:.2f}°C\n" \
-                        f" Coldest {period_label}: {coldest_period} - Temperature: {coldest_temp:.2f}°C\n" \
+            info_text += f" Hottest {period_label}: {hottest_period} -  Average Temperature: {hottest_temp:.2f}°C\n" \
+                        f" Coldest {period_label}: {coldest_period} - Average Temperature: {coldest_temp:.2f}°C\n" \
                         f' Average Temperature in this period: {average_temp:.2f}°C\n'
 
         elif data_type == 'snow_depth':
