@@ -839,3 +839,249 @@
 2024-01-03 17:56:58,831:INFO:Fetching data for cities: Riga, 
 2024-01-03 17:56:58,836:INFO:Data about temperature_2m successfully fetched for Riga in period 2024-01-03 to 2024-01-03
 2024-01-03 17:58:03,563:INFO:Fetching data for city1: Riga
+2024-01-03 19:13:21,674:INFO:Fetching data for city: Riga
+2024-01-03 19:13:21,685:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:13:23,568:INFO:Fetching data for city: Riga
+2024-01-03 19:13:23,572:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:13:31,478:INFO:Fetching data for city: Riga
+2024-01-03 19:13:31,484:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-11-01 to 2024-01-03
+2024-01-03 19:13:37,875:INFO:Fetching data for city: Riga
+2024-01-03 19:13:38,258:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-04-01 to 2024-01-03
+2024-01-03 19:13:39,692:INFO:Fetching data for city: Riga
+2024-01-03 19:13:39,697:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-04-01 to 2024-01-03
+2024-01-03 19:18:36,495:INFO:Fetching data for city: Riga
+2024-01-03 19:18:36,835:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-05-01 to 2024-01-01
+2024-01-03 19:18:44,278:INFO:Fetching data for city: Riga
+2024-01-03 19:18:44,335:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-05-01 to 2023-12-01
+2024-01-03 19:19:01,953:INFO:Fetching data for city: Riga
+2024-01-03 19:19:01,963:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-05-01 to 2023-12-01
+2024-01-03 19:19:07,166:INFO:Fetching data for city: Riga
+2024-01-03 19:19:07,172:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-05-01 to 2023-12-01
+2024-01-03 19:19:13,426:INFO:Fetching data for city: Riga
+2024-01-03 19:19:13,576:INFO:Data about temperature_2m successfully fetched for Riga in period 2020-02-01 to 2023-12-01
+2024-01-03 19:21:26,887:INFO:Fetching data for city: Riga
+2024-01-03 19:21:27,257:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-04-01 to 2023-12-01
+2024-01-03 19:21:36,655:INFO:Fetching data for city: Riga
+2024-01-03 19:21:36,667:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-04-01 to 2023-12-01
+2024-01-03 19:21:40,156:INFO:Fetching data for city: Riga
+2024-01-03 19:21:40,222:INFO:Data about snow_depth successfully fetched for Riga in period 2023-04-01 to 2023-12-01
+2024-01-03 19:21:47,190:INFO:Fetching data for city: Riga
+2024-01-03 19:21:47,272:INFO:Data about snow_depth successfully fetched for Riga in period 2023-04-01 to 2023-04-28
+2024-01-03 19:21:56,031:INFO:Fetching data for city: Riga
+2024-01-03 19:21:56,037:INFO:Data about snow_depth successfully fetched for Riga in period 2023-04-01 to 2023-04-28
+2024-01-03 19:22:30,479:INFO:Fetching data for city: Riga
+2024-01-03 19:22:30,497:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:34,362:INFO:Fetching data for city: Riga
+2024-01-03 19:22:34,368:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:36,511:INFO:Fetching data for city: Riga
+2024-01-03 19:22:36,516:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:38,062:INFO:Fetching data for city: Riga
+2024-01-03 19:22:38,063:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:39,067:INFO:Fetching data for city: Riga
+2024-01-03 19:22:39,073:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:42,131:INFO:Fetching data for city: Riga
+2024-01-03 19:22:42,136:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:45,602:INFO:Fetching data for city: Riga
+2024-01-03 19:22:45,607:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:49,353:INFO:Fetching data for city: Riga
+2024-01-03 19:22:49,707:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:51,281:INFO:Fetching data for city: Riga
+2024-01-03 19:22:51,283:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:52,576:INFO:Fetching data for city: Riga
+2024-01-03 19:22:52,582:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:22:56,341:INFO:Fetching data for city: Riga
+2024-01-03 19:22:56,345:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-27 to 2024-01-03
+2024-01-03 19:23:16,769:INFO:Fetching data for city: Riga
+2024-01-03 19:23:16,774:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:23:21,948:INFO:Fetching data for city: Riga
+2024-01-03 19:23:21,949:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:23:29,711:INFO:Fetching data for city: Riga
+2024-01-03 19:23:29,716:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:23:31,299:INFO:Fetching data for city: Riga
+2024-01-03 19:23:31,305:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:23:33,097:INFO:Fetching data for city: Riga
+2024-01-03 19:23:33,103:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:23:34,774:INFO:Fetching data for city: Riga
+2024-01-03 19:23:34,780:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:23:53,595:INFO:Fetching data for city: Riga
+2024-01-03 19:23:53,674:INFO:Data about precipitation successfully fetched for Riga in period 2023-01-01 to 2023-12-31
+2024-01-03 19:23:59,763:INFO:Fetching data for city: Riga
+2024-01-03 19:23:59,770:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-01-01 to 2023-12-31
+2024-01-03 19:24:02,300:INFO:Fetching data for city: Riga
+2024-01-03 19:24:02,306:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-01-01 to 2023-12-31
+2024-01-03 19:26:32,230:INFO:Fetching data for city: Riga
+2024-01-03 19:26:32,242:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:26:33,955:INFO:Fetching data for city: Riga
+2024-01-03 19:26:33,961:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:26:34,052:ERROR:Error fetching data for Riga: name 'bars' is not defined
+2024-01-03 19:28:13,832:INFO:Fetching data for city: Riga
+2024-01-03 19:28:13,847:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:28:15,203:INFO:Fetching data for city: Riga
+2024-01-03 19:28:15,208:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2024-01-03
+2024-01-03 19:28:43,381:INFO:Fetching data for city: Riga
+2024-01-03 19:28:43,387:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2024-01-01
+2024-01-03 19:28:49,667:INFO:Fetching data for city: Riga
+2024-01-03 19:28:49,673:INFO:Data about temperature_2m successfully fetched for Riga in period 2023-12-01 to 2023-12-31
+2024-01-03 19:29:19,204:INFO:Fetching data for city: Riga
+2024-01-03 19:29:19,570:INFO:Data about precipitation successfully fetched for Riga in period 2023-12-01 to 2023-12-31
+2024-01-03 19:29:26,877:INFO:Fetching data for city: Riga
+2024-01-03 19:29:26,971:INFO:Data about snow_depth successfully fetched for Riga in period 2023-12-01 to 2023-12-31
+2024-01-03 19:38:50,105:INFO:Fetching data for city1: Riga
+2024-01-03 19:38:51,578:INFO:Fetching data for city1: Riga
+2024-01-03 19:38:53,187:INFO:Fetching data for city1: Riga
+2024-01-03 19:38:54,168:INFO:Fetching data for city1: Riga
+2024-01-03 19:38:55,467:INFO:Fetching data for city1: Riga
+2024-01-03 19:38:59,726:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:00,601:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:01,912:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:02,248:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:03,346:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:04,835:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:05,611:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:08,677:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:39:09,257:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:41:17,417:INFO:Fetching data for city1: Riga
+2024-01-03 19:41:18,259:INFO:Fetching data for city1: Riga
+2024-01-03 19:41:20,994:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:21,884:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:26,458:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:27,190:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:27,765:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:28,748:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:28,932:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:29,853:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:30,014:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 19:41:34,701:INFO:Fetching data for city1: Rezekne and city2: Jekabpils
+2024-01-03 19:42:12,578:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:43:32,125:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:43:33,041:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:43:56,848:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:43:58,496:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:43:59,626:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:44:01,877:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:44:04,159:INFO:Fetching data for city1: Riga
+2024-01-03 19:44:04,675:INFO:Fetching data for city1: Riga
+2024-01-03 19:44:05,761:INFO:Fetching data for city1: Riga
+2024-01-03 19:44:06,907:INFO:Fetching data for city1: Riga
+2024-01-03 19:44:34,097:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:46:54,022:INFO:Fetching data for city1: Riga
+2024-01-03 19:47:06,382:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:47:08,876:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:47:17,736:INFO:Fetching data for city1: Riga and city2: Ogre
+2024-01-03 19:50:03,902:INFO:Fetching data for city1: Riga
+2024-01-03 19:50:06,804:INFO:Fetching data for city1: Riga and city2: Ventspils
+2024-01-03 19:50:09,483:INFO:Fetching data for city1: Riga and city2: Ventspils
+2024-01-03 19:50:10,280:INFO:Fetching data for city1: Riga and city2: Ventspils
+2024-01-03 19:51:41,255:INFO:Fetching data for city1: Riga
+2024-01-03 19:51:41,617:ERROR:Error fetching data for Riga: unpack_from requires a buffer of at least 116 bytes for unpacking 4 bytes at offset 112 (actual buffer size is 112)
+2024-01-03 19:51:44,287:INFO:Fetching data for city1: Riga
+2024-01-03 19:51:45,478:INFO:Fetching data for city1: Riga
+2024-01-03 19:51:54,211:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:52:07,593:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:52:08,756:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:52:50,577:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:52:51,301:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:54:47,153:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:54:48,172:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:54:48,911:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:58:59,477:INFO:Fetching data for city1: Riga
+2024-01-03 19:59:00,362:INFO:Fetching data for city1: Riga
+2024-01-03 19:59:03,036:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:04,019:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:05,048:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:06,268:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:06,878:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:11,182:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:12,087:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:13,228:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:14,805:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:15,379:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 19:59:40,867:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:01:08,935:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:01:09,750:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:01:10,352:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:01:12,659:INFO:Fetching data for city1: Riga
+2024-01-03 20:01:13,531:INFO:Fetching data for city1: Riga
+2024-01-03 20:01:15,989:INFO:Fetching data for city1: Riga
+2024-01-03 20:01:17,399:INFO:Fetching data for city1: Riga
+2024-01-03 20:01:35,021:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:05:38,640:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:05:39,599:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:07:16,166:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:07:17,015:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:07:54,915:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:07:55,689:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:08:54,171:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:08:55,166:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:09:58,712:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:10:07,463:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:10:11,054:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:10:12,915:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:10:28,838:INFO:Fetching data for city1: Riga
+2024-01-03 20:15:14,921:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:15:27,117:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:16:31,751:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:19:49,959:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:19:55,316:INFO:Fetching data for city1: Riga
+2024-01-03 20:20:04,086:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:20:12,030:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:20:23,300:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:20:42,635:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:23:49,393:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:23:56,707:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:24:03,325:INFO:Fetching data for city1: Riga
+2024-01-03 20:24:06,492:INFO:Fetching data for city1: Riga
+2024-01-03 20:26:13,394:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:26:14,865:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:26:20,052:INFO:Fetching data for city1: Riga
+2024-01-03 20:26:31,440:INFO:Fetching data for city1: Riga and city2: Kraslava
+2024-01-03 20:26:35,851:INFO:Fetching data for city1: Riga and city2: Kraslava
+2024-01-03 20:29:29,204:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:29:30,723:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:32:44,046:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:32:44,870:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:32:46,783:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:32:47,449:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:32:49,559:INFO:Fetching data for city1: Riga
+2024-01-03 20:32:50,443:INFO:Fetching data for city1: Riga
+2024-01-03 20:33:17,798:INFO:Fetching data for city1: Riga
+2024-01-03 20:33:19,219:INFO:Fetching data for city1: Riga
+2024-01-03 20:33:41,249:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:33:46,913:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:34:01,631:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:34:06,395:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:37:12,563:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:37:23,565:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:38:02,840:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:38:06,975:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:38:17,810:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:38:20,470:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:38:30,598:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:38:42,497:INFO:Fetching data for city1: Riga
+2024-01-03 20:38:55,919:INFO:Fetching data for city1: Riga
+2024-01-03 20:40:06,337:INFO:Fetching data for city1: Riga
+2024-01-03 20:40:13,489:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 20:40:21,953:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 20:40:28,462:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 20:40:30,395:INFO:Fetching data for city1: Riga and city2: Jelgava
+2024-01-03 20:47:28,647:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:47:30,667:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:47:35,791:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:47:40,557:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:57:23,747:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:57:30,445:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:57:35,399:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:57:49,392:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:58:09,359:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:58:11,353:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:58:25,360:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:58:42,699:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:59:17,839:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 20:59:30,064:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 21:01:20,326:INFO:Fetching data for city1: Riga
+2024-01-03 21:03:37,264:INFO:Fetching data for city1: Riga
+2024-01-03 21:04:04,980:INFO:Fetching data for city1: Riga
+2024-01-03 21:04:22,918:INFO:Fetching data for city1: Riga
+2024-01-03 21:08:54,037:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 21:08:55,555:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-03 21:09:18,175:INFO:Fetching data for city1: Riga and city2: Daugavpils

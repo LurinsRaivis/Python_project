@@ -11,7 +11,8 @@ import requests_cache
 from retry_requests import retry
 from tkinter.filedialog import asksaveasfilename
 import logging
-import tkinter.font as tkFont 
+import tkinter.font as tkFont
+import matplotlib.dates as mdates
 
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
@@ -238,8 +239,18 @@ def process_and_plot_data(df, data_type, info_label, start_date, end_date):
         # Add legend
         ax.legend()
 
-    elif chart_type_var.get() == "line": df_agg[data_type].plot(kind='line', ax=ax)
-    elif chart_type_var.get() == "bar":  df_agg[data_type].plot(kind='bar', ax=ax)
+    elif chart_type_var.get() == "line": 
+        df_agg[data_type].plot(kind='line', ax=ax)
+    
+    elif chart_type_var.get() == "bar":  
+        df_agg[data_type].plot(kind='bar', ax=ax)
+        for bar in ax.patches:
+            bar_height = bar.get_height()
+            ax.annotate(f'{bar_height:.2f}',
+                        xy=(bar.get_x() + bar.get_width() / 2, bar_height),
+                        xytext=(0, 3),  # 3 points vertical offset
+                        textcoords="offset points",
+                        ha='center', va='bottom')
     
     ax.set_xlabel('Date')
 
