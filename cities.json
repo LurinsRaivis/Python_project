@@ -8,5 +8,15 @@
     "Valmiera":     {"latitude": 57.5411,   "longitude": 25.4275},
     "Jekabpils":    {"latitude": 56.499,    "longitude": 25.8574},
     "Tukums":       {"latitude": 56.9676,   "longitude": 23.1555},
-    "Bauska":       {"latitude": 56.4079,   "longitude": 24.1944}
+    "Bauska":       {"latitude": 56.4079,   "longitude": 24.1944},
+    "Cesis":        {"latitude": 57.3132,   "longitude": 25.2726},
+    "Ogre":         {"latitude": 56.8167,   "longitude": 24.6067},
+    "Salaspils":    {"latitude": 56.861,    "longitude": 24.3498},
+    "Talsi":        {"latitude": 57.2465,   "longitude": 22.5876},
+    "Kuldiga":      {"latitude": 56.968,    "longitude": 21.968},
+    "Sigulda":      {"latitude": 57.1538,   "longitude": 24.8545},
+    "Madona":       {"latitude": 56.8557,   "longitude": 26.2184},
+    "Kraslava":     {"latitude": 55.895,    "longitude": 27.1677},
+    "Ludza":        {"latitude": 56.55,     "longitude": 27.7167},
+    "Saldus":       {"latitude": 56.6667,   "longitude": 22.5}
 }
