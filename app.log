@@ -1168,3 +1168,48 @@
 2024-01-04 14:30:04,475:INFO:Fetching data for city1: Riga and city2: Daugavpils
 2024-01-04 14:30:06,890:INFO:Fetching data for city1: Riga
 2024-01-04 14:30:31,691:INFO:Fetching data for city1: Riga
+2024-01-04 20:37:59,656:INFO:Fetching data for city1: Riga
+2024-01-04 20:38:09,648:INFO:Fetching data for city1: Riga
+2024-01-04 20:38:09,697:ERROR:Error fetching data for Riga: {'reason': 'End-date must be larger or equals than start-date', 'error': True}
+2024-01-04 20:38:22,300:INFO:Fetching data for city1: Riga
+2024-01-04 20:38:47,368:INFO:Fetching data for city1: Riga
+2024-01-04 20:38:54,590:INFO:Fetching data for city1: Riga
+2024-01-04 20:38:59,838:INFO:Fetching data for city1: Riga
+2024-01-04 20:39:09,522:INFO:Fetching data for city1: Riga
+2024-01-04 20:39:09,560:ERROR:Error fetching data for Riga: {'reason': 'Invalid date', 'error': True}
+2024-01-04 20:40:23,523:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-04 20:40:23,561:ERROR:Error fetching data for Riga: {'reason': 'Invalid date', 'error': True}
+2024-01-04 20:40:23,598:ERROR:Error fetching data for Daugavpils: {'error': True, 'reason': 'Invalid date'}
+2024-01-04 20:40:31,598:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-04 20:40:37,415:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-04 20:40:39,631:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-04 20:47:57,499:INFO:Fetching data for city1: Riga
+2024-01-04 20:49:56,815:INFO:Fetching data for city1: Riga
+2024-01-04 20:50:00,731:INFO:Fetching data for city1: Riga
+2024-01-04 20:50:01,310:INFO:Fetching data for city1: Riga
+2024-01-04 20:50:45,145:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-04 20:50:58,857:INFO:Fetching data for city1: Rezekne and city2: Liepaja
+2024-01-04 21:10:14,331:INFO:Fetching data for city1: Riga
+2024-01-04 21:10:15,171:INFO:Fetching data for city1: Riga
+2024-01-04 21:10:20,871:INFO:Fetching data for city1: Riga and city2: Cesis
+2024-01-04 21:10:21,976:INFO:Fetching data for city1: Riga and city2: Cesis
+2024-01-04 21:10:23,286:INFO:Fetching data for city1: Riga and city2: Cesis
+2024-01-04 21:10:24,571:INFO:Fetching data for city1: Riga and city2: Cesis
+2024-01-04 21:10:29,363:INFO:Fetching data for city1: Riga and city2: Cesis
+2024-01-04 21:15:14,219:INFO:Fetching data for city1: Riga
+2024-01-04 21:15:15,996:INFO:Fetching data for city1: Riga
+2024-01-04 21:15:24,647:INFO:Fetching data for city1: Riga
+2024-01-04 21:15:35,535:INFO:Fetching data for city1: Riga
+2024-01-04 21:15:40,852:INFO:Fetching data for city1: Riga
+2024-01-04 21:15:50,284:INFO:Fetching data for city1: Riga
+2024-01-04 21:15:52,389:INFO:Fetching data for city1: Riga
+2024-01-04 21:19:19,610:INFO:Fetching data for city1: Riga
+2024-01-04 21:19:20,546:INFO:Fetching data for city1: Riga
+2024-01-04 21:19:22,379:INFO:Fetching data for city1: Riga
+2024-01-04 21:19:23,352:INFO:Fetching data for city1: Riga
+2024-01-04 21:19:30,872:INFO:Fetching data for city1: Riga and city2: Tukums
+2024-01-04 21:19:32,183:INFO:Fetching data for city1: Riga and city2: Tukums
+2024-01-04 21:19:33,545:INFO:Fetching data for city1: Riga and city2: Tukums
+2024-01-04 21:19:34,760:INFO:Fetching data for city1: Riga and city2: Tukums
+2024-01-04 21:19:36,360:INFO:Fetching data for city1: Riga and city2: Tukums
+2024-01-04 21:19:37,121:INFO:Fetching data for city1: Riga and city2: Tukums
