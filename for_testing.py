@@ -95,7 +95,7 @@ def setup_layout(app):
 def controls(top_frame, controls_frame):
     global output_label, cal_start, cal_end, info_label
 
-    app_title_label = ctk.CTkLabel(top_frame, text="Weather Analysis Tool", font=("Helvetica", 24), text_color='black')
+    app_title_label = ctk.CTkLabel(top_frame, text="Historical Weather Data Analysis Tool", font=("Helvetica", 24), text_color='black')
     app_title_label.pack(side='top', pady=10)
     
     cal_start = Calendar(controls_frame, selectmode='day')
