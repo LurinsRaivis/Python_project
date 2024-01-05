@@ -314,14 +314,23 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
         df_agg_sum = df.resample(period_code, on='date').sum()
             
         if data_type == 'temperature_2m':
-            hottest_temp = df_agg[data_type].max()
-            coldest_temp = df_agg[data_type].min()
+            hottest_temp_day = df['temperature_2m'].max()
+            coldest_temp_day = df['temperature_2m'].min()
+            hottest_day = df[df['temperature_2m'] == hottest_temp_day]['date'].iloc[0].strftime("%Y-%m-%d")
+            coldest_day = df[df['temperature_2m'] == coldest_temp_day]['date'].iloc[0].strftime("%Y-%m-%d")
+
+            # Calculate hottest and coldest period
+            hottest_temp_period = df_agg[data_type].max()
+            coldest_temp_period = df_agg[data_type].min()
             hottest_period = format_period(df_agg[data_type].idxmax(), period_label)
             coldest_period = format_period(df_agg[data_type].idxmin(), period_label)
+
             average_temp = df_agg[data_type].mean()
 
-            info_text += f" Hottest {period_label}: {hottest_period} - Average Temperature: {hottest_temp:.2f}°C\n" \
-                        f" Coldest {period_label}: {coldest_period} - Average Temperature: {coldest_temp:.2f}°C\n" \
+            info_text += f" Hottest Day: {hottest_day} - Temperature: {hottest_temp_day:.2f}°C\n" \
+                        f" Coldest Day: {coldest_day} - Temperature: {coldest_temp_day:.2f}°C\n" \
+                        f" Hottest {period_label}: {hottest_period} - Average Temperature: {hottest_temp_period:.2f}°C\n" \
+                        f" Coldest {period_label}: {coldest_period} - Average Temperature: {coldest_temp_period:.2f}°C\n" \
                         f' Average Temperature in this period: {average_temp:.2f}°C\n'
 
         elif data_type == 'snow_depth':
