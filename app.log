@@ -1241,3 +1241,5 @@
 2024-01-05 10:57:29,430:INFO:Fetching data for city1: Jekabpils and city2: Cesis
 2024-01-05 11:00:29,988:INFO:Fetching data for city1: Riga
 2024-01-05 11:00:32,603:INFO:CSV file saved: C:/Users/raivu/OneDrive/Dators/WeatherData_Riga_20240105_110030.csv
+2024-01-05 11:19:53,468:INFO:Fetching data for city1: Kuldiga
+2024-01-05 11:19:56,294:INFO:CSV file saved: C:/Users/raivu/OneDrive/Dators/WeatherData_Kuldiga_20240105_111954.csv
