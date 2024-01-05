@@ -1214,3 +1214,30 @@
 2024-01-04 21:19:36,360:INFO:Fetching data for city1: Riga and city2: Tukums
 2024-01-04 21:19:37,121:INFO:Fetching data for city1: Riga and city2: Tukums
 2024-01-05 10:12:15,463:INFO:Fetching data for city1: Riga
+2024-01-05 10:36:56,867:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:37:04,618:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:37:07,134:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:37:32,991:INFO:Fetching data for city1: Riga
+2024-01-05 10:38:11,219:INFO:Fetching data for city1: Riga
+2024-01-05 10:38:11,811:WARNING:Attempted to save data, but no data was available.
+2024-01-05 10:38:52,082:INFO:Fetching data for city1: Riga
+2024-01-05 10:38:52,535:WARNING:Attempted to save data, but no data was available.
+2024-01-05 10:42:05,079:INFO:Fetching data for city1: Riga
+2024-01-05 10:46:08,587:INFO:Fetching data for city1: Riga
+2024-01-05 10:46:17,506:INFO:CSV file save operation was canceled.
+2024-01-05 10:46:34,553:INFO:CSV file save operation was canceled.
+2024-01-05 10:48:27,540:WARNING:Attempted to save data, but no data was available.
+2024-01-05 10:48:29,136:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:49:23,411:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:52:11,652:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:52:12,540:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:52:13,273:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:52:13,751:WARNING:Attempted to save data, but no data was available.
+2024-01-05 10:52:48,384:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:54:51,184:INFO:Fetching data for city1: Riga and city2: Daugavpils
+2024-01-05 10:55:37,319:INFO:Fetching data for city1: Jelgava
+2024-01-05 10:57:01,380:INFO:Fetching data for city1: Riga
+2024-01-05 10:57:02,367:INFO:Fetching data for city1: Riga
+2024-01-05 10:57:29,430:INFO:Fetching data for city1: Jekabpils and city2: Cesis
+2024-01-05 11:00:29,988:INFO:Fetching data for city1: Riga
+2024-01-05 11:00:32,603:INFO:CSV file saved: C:/Users/raivu/OneDrive/Dators/WeatherData_Riga_20240105_110030.csv

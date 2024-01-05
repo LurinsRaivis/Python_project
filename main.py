@@ -122,7 +122,7 @@ def controls(top_frame, controls_frame):
     exit_fullscreen_button = ctk.CTkButton(controls_frame, text="Windowed/Fullscreen", command=toggle_fullscreen)
     exit_fullscreen_button.pack(pady=10)
     
-    output_label = ctk.CTkLabel(controls_frame, text="")
+    output_label = ctk.CTkLabel(controls_frame, text="", text_color='red')
     output_label.pack(pady=10)
     
     quit_button = ctk.CTkButton(controls_frame, text="Quit", command=lambda: app.quit())
@@ -193,28 +193,45 @@ def fetch_data():
 def download_csv():
     global df
     if df is not None:
-        filepath = asksaveasfilename(defaultextension='.csv',
-                                     filetypes=[("CSV files", '*.csv')],
-                                     title="Save file as")
-        if filepath:  # If the user does not cancel the dialog
+        city1_name = city_var.get()
+        city2_name = city2_var.get()
+
+        if city2_name:  
+            default_filename = f"WeatherData_{city1_name}_and_{city2_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        else:  
+            default_filename = f"WeatherData_{city1_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        
+        filepath = asksaveasfilename(defaultextension='.csv', filetypes=[("CSV files", '*.csv')], title="Save file as", initialfile=default_filename)  
+        
+        if filepath:  
             df.to_csv(filepath, index=False)
-            output_label.config(text="File saved successfully.")
+            output_label.configure(text="File saved successfully.")
             logging.info(f"CSV file saved: {filepath}")
         else:
             logging.info("CSV file save operation was canceled.")
     else:
-        output_label.config(text="No data to save.")
+        output_label.configure(text="No data to save. Maybe try to fetch data first?")
         logging.warning("Attempted to save data, but no data was available.")
+
 
 def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, info_label):
     global canvas_widget
+    global df
     #print(f"Inside process_and_plot_data - df_city1: {type(df_city1)}, df_city2: {type(df_city2)}, Data type: {data_type}, Type: {type(data_type)}")
     #print("Processing data...") 
-    
+
+    if df_city1 is not None and df_city2 is not None:
+        df = pd.merge(df_city1, df_city2, on='date', suffixes=(f'_{city_var.get()}', f'_{city2_var.get()}'))
+    elif df_city1 is not None:
+        df = df_city1.rename(columns={col: f'{col}_{city_var.get()}' for col in df_city1.columns if col != 'date'})
+    elif df_city2 is not None:
+        df = df_city2.rename(columns={col: f'{col}_{city2_var.get()}' for col in df_city2.columns if col != 'date'})
+    else:
+        df = None
+ 
     start_date = pd.to_datetime(start_date)
     end_date = pd.to_datetime(end_date)
 
-    #aggregation_funcs = {'temperature_2m': np.mean, 'snow_depth': np.mean, 'precipitation': np.sum}
     aggregation_funcs = {'temperature_2m': 'mean', 'snow_depth': 'mean', 'precipitation': 'sum'}
 
     aggregation_func = aggregation_funcs[data_type]
