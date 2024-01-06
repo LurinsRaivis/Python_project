@@ -1,3 +1,4 @@
+#   Importējam vajadzīgās bibliotēkas
 import customtkinter as ctk
 from tkcalendar import Calendar
 from datetime import datetime
@@ -16,39 +17,49 @@ import calendar
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
+# Iestatām log failu
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
+# Ielādējam pilsētu datus no JSON faila
 with open('cities.json', 'r') as file:
     cities = json.load(file)
 
+# Iestatām pieprasījumu kešatmiņu
 cache_session = requests_cache.CachedSession('.cache', expire_after=-1)
 retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
 openmeteo = openmeteo_requests.Client(session=retry_session)
 
+# Iestatām pieprasījumu URL
 url = "https://archive-api.open-meteo.com/v1/archive"
 
+# Iestatām izskatu
 ctk.set_appearance_mode("System") 
 ctk.set_default_color_theme("green")  
 
+# Izveidojam logu
 app = ctk.CTk()
 app.title("Historical Weather Data Tool")
 app.attributes('-fullscreen', True)
 
+# Definējam globālos mainīgos
 global canvas_widget, df
 canvas_widget = None
 df = None
 
+# Funkcija, kas ļauj lietotājam pārslēgties starp pilnekrāna un loga režīmu
 def toggle_fullscreen():
     if app.attributes('-fullscreen'):
         app.attributes('-fullscreen', False)
     else:
         app.attributes('-fullscreen', True)
 
+# Funkcija, kas ļauj lietotājam pārslēgties starp tumšo un gaišo režīmu
 def toggle_appearance_mode():
     current_mode = ctk.get_appearance_mode()
     new_mode = "Light" if current_mode == "Dark" else "Dark"
     ctk.set_appearance_mode(new_mode)
 
+# Funkcija, kas definē un inicializē globālos mainīgos
 def initialize_variables():
     global city_var, city2_var, data_type_var, chart_type_var, data_types
 
@@ -58,6 +69,7 @@ def initialize_variables():
     chart_type_var = ctk.StringVar(value="line")
     data_types = ['temperature_2m', 'snow_depth', 'precipitation']
 
+# Funkcija, kas izveido pilsētu izvēles rāmīti
 def create_city_selection_frame(parent):
     city_selection_frame = ctk.CTkFrame(parent, fg_color='#aaaaaa')
     city_selection_frame.pack(fill='x', pady=10)
@@ -76,6 +88,7 @@ def create_city_selection_frame(parent):
 
     return city_selection_frame
 
+# Funkcija, kas izveido aplikācijas loga izkārtojumu
 def setup_layout(app):
     top_frame = ctk.CTkFrame(app, fg_color='#aaaaaa')
     graph_frame = ctk.CTkFrame(app, width=1344)
@@ -90,6 +103,7 @@ def setup_layout(app):
 
     return top_frame, graph_frame, controls_frame, info_frame, city_selection_frame  
 
+# Funkcija, kas izveido aplikācijas kontrolieru rāmīti (pogas, lauki, u.t.t.)
 def controls(top_frame, controls_frame):
     global output_label, cal_start, cal_end, info_label
 
@@ -132,77 +146,82 @@ def controls(top_frame, controls_frame):
     info_label = ctk.CTkLabel(info_frame, height=100, width=400, text="", font=label_font, anchor='center')
     info_label.pack(side='top', fill='x')
 
+# Funkcija, kas pieņem lietotāja ievadītos datus un izsauc funkciju, kas pieprasa datus no API
 def fetch_data():
     global df_city1, df_city2
-    city1 = city_var.get()
-    city2 = city2_var.get()
+    city1 = city_var.get() # Pirmās pilsētas nosaukums, kas iegūts no lietotāja
+    city2 = city2_var.get() # Otrās pilsētas nosaukums, kas iegūts no lietotāja
 
-    logging.info(f"Fetching data for city1: {city1}" + (f" and city2: {city2}" if city2 else ""))
+    logging.info(f"Fetching data for city1: {city1}" + (f" and city2: {city2}" if city2 else "")) # Ierakstām log failā, kuras pilsētas dati tiek pieprasīti
 
-    start_date = datetime.strptime(cal_start.get_date(), "%m/%d/%y").strftime("%Y-%m-%d")
-    end_date = datetime.strptime(cal_end.get_date(), "%m/%d/%y").strftime("%Y-%m-%d")
-    data_type = data_type_var.get()
+    start_date = datetime.strptime(cal_start.get_date(), "%m/%d/%y").strftime("%Y-%m-%d") # Sākuma datums, kas iegūts no lietotāja, pārveidots formātā, kas pieņemts API
+    end_date = datetime.strptime(cal_end.get_date(), "%m/%d/%y").strftime("%Y-%m-%d")   # Beigu datums, kas iegūts no lietotāja, pārveidots formātā, kas pieņemts API
+    data_type = data_type_var.get() # Datu tips, ko lietotājs vēlas iegūt
 
     #print("Data type:", data_type, "Type of data_type:", type(data_type))
 
+    # Funkcija, kas pieprasa datus no API
     def fetch_city_data(city):
-        if city and city in cities:
-            latitude = cities[city]["latitude"]
-            longitude = cities[city]["longitude"]
-            params = {
+        
+        if city and city in cities: # Pārbauda, vai pilsēta ir sarakstā (cities.json)
+            latitude = cities[city]["latitude"] # Pilsētas koordinātes, kas iegūtas no cities.json
+            longitude = cities[city]["longitude"] 
+            params = {  # API pieprasījuma parametri
                 "latitude": latitude,
                 "longitude": longitude,
                 "start_date": start_date,
                 "end_date": end_date,
                 "hourly": data_type
             }
-            try:
-                response = openmeteo.weather_api(url, params=params)[0]
-                hourly_data_values = response.Hourly().Variables(0).ValuesAsNumpy()
-                return pd.DataFrame({
-                    "date": pd.date_range(
-                        start=pd.to_datetime(response.Hourly().Time(), unit="s"),
-                        end=pd.to_datetime(response.Hourly().TimeEnd(), unit="s"),
-                        freq=pd.Timedelta(seconds=response.Hourly().Interval()),
-                        inclusive="left"
+            try: # Mēģina pieprasīt datus no API
+                response = openmeteo.weather_api(url, params=params)[0] # Pieprasa datus no API
+                hourly_data_values = response.Hourly().Variables(0).ValuesAsNumpy() # Iegūst datus no API
+                return pd.DataFrame({ # Izveido DataFrame, kas satur datus, ar Pandas bibliotēkas palīdzību
+                    "date": pd.date_range(  # Pievieno datuma kolonnu
+                        start=pd.to_datetime(response.Hourly().Time(), unit="s"), # Pārveido UNIX timestamp uz datetime objektu
+                        end=pd.to_datetime(response.Hourly().TimeEnd(), unit="s"),  
+                        freq=pd.Timedelta(seconds=response.Hourly().Interval()), # Pievieno intervālu
+                        inclusive="left" # Iekļauj sākuma datumu
                     ),
-                    data_type: hourly_data_values
+                    data_type: hourly_data_values # Pievieno datus
                 })
-            except Exception as e:
-                output_label.configure(text=str(e))
-                logging.error(f"Error fetching data for {city}: {e}")
+            except Exception as e: # Ja pieprasījums neizdodas, izvada kļūdas paziņojumu
+                output_label.configure(text=str(e)) # Izvada kļūdas paziņojumu
+                logging.error(f"Error fetching data for {city}: {e}") # Ierakstām log failā, ja pieprasījums neizdodas
                 return None
         else:
             return None
 
-    df_city1 = fetch_city_data(city1)
-    df_city2 = fetch_city_data(city2)
+    df_city1 = fetch_city_data(city1) # Pieprasa datus no API
+    df_city2 = fetch_city_data(city2) # Pieprasa datus no API
 
     #print("Type of df_city1:", type(df_city1), "Type of df_city2:", type(df_city2))
 
-    if isinstance(data_type, str):
-        if df_city1 is not None or df_city2 is not None:
-            #print(f"Final check - Data type: {data_type}, Type: {type(data_type)}")
-            #print(f"DF Check - df_city1: {type(df_city1)}, df_city2: {type(df_city2)}")
-            process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, info_label)
+    if isinstance(data_type, str): # Pārbauda, vai datu tips ir teksts
+        if df_city1 is not None or df_city2 is not None: # Pārbauda, vai ir iegūti dati
+            process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, info_label) # Apstrādā un attēlo datus
         else:
-            output_label.config(text="No data to display. Please select a city.")
+            output_label.config(text="No data to display. Please select a city.") # Izvada paziņojumu, ja nav iegūti dati
     else:
-        output_label.config(text="Error: data_type is not a string.")
+        output_label.config(text="Error: data_type is not a string.") # Izvada paziņojumu, ja datu tips nav teksts
 
+# Funkcija, kas ļauj lietotājam saglabāt datus CSV failā
 def download_csv():
     global df
-    if df is not None:
+    if df is not None: # Pārbauda, vai ir iegūti dati
         city1_name = city_var.get()
         city2_name = city2_var.get()
 
+        #if-else nosacījums, kas nosaka noklusējuma faila nosaukumu
         if city2_name:  
             default_filename = f"WeatherData_{city1_name}_and_{city2_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
         else:  
             default_filename = f"WeatherData_{city1_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
         
+        # Funkcija, kas saglabā datus CSV failā
         filepath = asksaveasfilename(defaultextension='.csv', filetypes=[("CSV files", '*.csv')], title="Save file as", initialfile=default_filename)  
         
+        #if-else nosacījums, kas nosaka, vai dati tika saglabāti vai nē
         if filepath:  
             df.to_csv(filepath, index=False)
             output_label.configure(text="File saved successfully.")
@@ -213,94 +232,109 @@ def download_csv():
         output_label.configure(text="No data to save. Maybe try to fetch data first?")
         logging.warning("Attempted to save data, but no data was available.")
 
-
+#Funkcija, kas apstrādā un attēlo datus
 def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, info_label):
-    global canvas_widget
-    global df
+    global canvas_widget # Definējam globālo mainīgo canvas_widget, kas satur grafika rāmīti
+    global df # Definējam globālo mainīgo df, kas satur datus
+
     #print(f"Inside process_and_plot_data - df_city1: {type(df_city1)}, df_city2: {type(df_city2)}, Data type: {data_type}, Type: {type(data_type)}")
     #print("Processing data...") 
 
+    # If-elif-else nosacījums, kas pārveido kolonnu nosaukumus, lai lietotājs labāk saprastu excel failu
     if df_city1 is not None and df_city2 is not None:
-        df = pd.merge(df_city1, df_city2, on='date', suffixes=(f'_{city_var.get()}', f'_{city2_var.get()}'))
+        df = pd.merge(df_city1, df_city2, on='date', suffixes=(f'_{city_var.get()}', f'_{city2_var.get()}')) # Apvieno divus DataFrame, ja ir iegūti dati abām pilsētām
     elif df_city1 is not None:
         df = df_city1.rename(columns={col: f'{col}_{city_var.get()}' for col in df_city1.columns if col != 'date'})
     elif df_city2 is not None:
         df = df_city2.rename(columns={col: f'{col}_{city2_var.get()}' for col in df_city2.columns if col != 'date'})
     else:
         df = None
- 
+    
+    # Pārveido sākuma un beigu datumus datetime objektos
     start_date = pd.to_datetime(start_date)
     end_date = pd.to_datetime(end_date)
 
+    # Definējam funkcijas, kas aprēķina vidējo temperatūru, sniega biezumu un nokrišņu daudzumu
     aggregation_funcs = {'temperature_2m': 'mean', 'snow_depth': 'mean', 'precipitation': 'sum'}
 
+    # Definējam funkciju, kas aprēķina vidējo temperatūru, sniega biezumu un nokrišņu daudzumu
     aggregation_func = aggregation_funcs[data_type]
 
+    # Ja jau ir izveidots grafika rāmītis, to izdzēš (lai varētu attēlot jaunus datus)
     if canvas_widget is not None:
         canvas_widget.destroy()
     
+    # Funkcija, kas formatē laika periodu
     def format_period(date, period_label):
-        if period_label == "Month":
+        if period_label == "Month": # Pārveido mēneša numuru par mēneša nosaukumu
             return calendar.month_name[date.month]
-        elif period_label == "Year":
+        elif period_label == "Year": # Pārveido gadu par gadas skaitli
             return str(date.year)
         else:
-            return date.strftime("%Y-%m-%d")
-        
+            return date.strftime("%Y-%m-%d") 
+
+    # Funkcija, kas aprēķina laika periodu   
     def compute_time_period(df):
-        time_diff = (df['date'].max() - df['date'].min()).days
-        if time_diff <= 35:
+        time_diff = (df['date'].max() - df['date'].min()).days # Aprēķina laika periodu, ko lietotājs izvēlējās
+        if time_diff <= 35: # Ja laika periods ir mazāks par 35 dienām, tad dati tiek attēloti dienās
             return 'D', "Day", "Daily"  
-        elif time_diff <= 180:
+        elif time_diff <= 180: # Ja laika periods ir mazāks par 180 dienām, tad dati tiek attēloti nedēļās
             return 'W', "Week","Weekly" 
-        elif time_diff <= 365:
+        elif time_diff <= 365: # Ja laika periods ir mazāks par 365 dienām, tad dati tiek attēloti mēnešos
             return 'M', "Month" , "Monthly" 
-        else:
+        else: # Ja laika periods ir lielāks par 365 dienām, tad dati tiek attēloti gados
             return 'Y', "Year", "Yearly"  
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots() # Izveidojam grafika rāmīti
 
+    # Funkcija, kas attēlo datus
     def plot_city_data(df, city_name, plot_color, plot_type):
-        if df is None:
+        
+        if df is None: # Pārbauda, vai ir iegūti dati
             return
 
-        df['date'] = pd.to_datetime(df['date'])
-        df.sort_values('date', inplace=True)
+        df['date'] = pd.to_datetime(df['date']) # Pārveido datumu kolonnu datetime objektos
+        df.sort_values('date', inplace=True) # Sakārto datus pēc datuma
 
-        df = df[(df['date'] >= pd.to_datetime(start_date)) & (df['date'] <= pd.to_datetime(end_date))]
+        df = df[(df['date'] >= pd.to_datetime(start_date)) & (df['date'] <= pd.to_datetime(end_date))] # Izvēlas datus, kas atrodas starp sākuma un beigu datumu
 
-        df_agg = df.resample('D', on='date').agg({data_type: aggregation_func})
+        df_agg = df.resample('D', on='date').agg({data_type: aggregation_func}) # Apvieno datus pēc dienām
         
-        if data_type == 'temperature_2m':
+        if data_type == 'temperature_2m': # Ja dati ir temperatūras dati, tad tiek pievienota līnija, kas atbilst 0°C
             ax.axhline(0, color='gray', linestyle='dotted', linewidth=1)
 
-        if data_type == 'temperature_2m' and (df_city1 is None or df_city2 is None):
-            daily_max = df.resample('D', on='date')['temperature_2m'].max()
-            daily_min = df.resample('D', on='date')['temperature_2m'].min()
+        # if nosacījums, kas pārbauda, vai dati ir par temperatūras un ir izvēlēta tikai viena pilsēta
+        if data_type == 'temperature_2m' and (df_city1 is None or df_city2 is None): 
+            daily_max = df.resample('D', on='date')['temperature_2m'].max() # Aprēķina maksimālo temperatūru
+            daily_min = df.resample('D', on='date')['temperature_2m'].min() # Aprēķina minimālo temperatūru
 
-            ax.plot(daily_max.index, daily_max.values, color='red', label='Max Temp', linestyle='--')
-            ax.plot(daily_min.index, daily_min.values, color='blue', label='Min Temp', linestyle='--')
+            ax.plot(daily_max.index, daily_max.values, color='red', label='Max Temp', linestyle='--') # Attēlo maksimālo temperatūru
+            ax.plot(daily_min.index, daily_min.values, color='blue', label='Min Temp', linestyle='--') # Attēlo minimālo temperatūru
 
-        if plot_type == 'line':
-            ax.plot(df_agg.index, df_agg[data_type], label=city_name, color=plot_color)
+        # if-elif nosacījums, kas pārbauda, vai ir izvēlēt līnijas vai stabiņu grafiks
+        if plot_type == 'line': 
+            ax.plot(df_agg.index, df_agg[data_type], label=city_name, color=plot_color) # Attēlo līniju
         elif plot_type == 'bar':
-            ax.bar(df_agg.index, df_agg[data_type], label=city_name, color=plot_color)
+            ax.bar(df_agg.index, df_agg[data_type], label=city_name, color=plot_color) # Attēlo stabiņu
 
-    plot_city_data(df_city1, city_var.get(), 'black', chart_type_var.get())
-    plot_city_data(df_city2, city2_var.get(), 'green', chart_type_var.get())
+    plot_city_data(df_city1, city_var.get(), 'black', chart_type_var.get()) # Attēlo pirmās pilsētas datus
+    plot_city_data(df_city2, city2_var.get(), 'green', chart_type_var.get()) # Attēlo otrās pilsētas datus
     
-    period_label = compute_time_period(df_city1)[1]
-    period_code = compute_time_period(df_city1)[0]
-    if period_label in ["Day", "Week", "Month", "Year"]:
+    period_label = compute_time_period(df_city1)[1] # Mainīgajam period_label piešķiram laika periodu
+    period_code = compute_time_period(df_city1)[0] # Mainīgajam period_code piešķiram laika perioda "kodu"
+    
+    if period_label in ["Day", "Week", "Month", "Year"]: # Ja laika periods ir dienās, nedēļās, mēnešos vai gados, tad tiek attēlotas vertikālas līnijas, kas atbilst laika periodam
 
-        dates_range = pd.date_range(start=start_date, end=end_date, freq=period_code)
+        dates_range = pd.date_range(start=start_date, end=end_date, freq=period_code) # Izveido datu diapazonu
         for date in dates_range:
             ax.axvline(date, color='grey', linestyle='dotted', alpha=0.5)
 
-    ax.xaxis.set_major_locator(mdates.AutoDateLocator())
-    ax.xaxis.set_major_formatter(mdates.ConciseDateFormatter(ax.xaxis.get_major_locator()))
+    ax.xaxis.set_major_locator(mdates.AutoDateLocator()) # Funkcija, kas automātiski izvēlas datu intervālu, un pārveido x asi, lai tā būtu lasāmāka
+    ax.xaxis.set_major_formatter(mdates.ConciseDateFormatter(ax.xaxis.get_major_locator())) # Funkcija, kas izēlās labākos datus, ko norādīt x asī
 
-    ax.set_xlabel('Date')
+    ax.set_xlabel('Date') # Pievieno x ass nosaukumu
+
+    # if-elif-else nosacījums, kas nosaka y ass nosaukumu
     if data_type == 'temperature_2m':
         ax.set_ylabel('Temperature (°C)')
     elif data_type == 'snow_depth':
@@ -308,15 +342,16 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
     else:    
         ax.set_ylabel('Precipitation (mm)')
 
-    title_city_part = city_var.get()
+    # Mainīgais, kas palīdz izveidot skaistāku grafika nosaukumu
+    title_city_part = city_var.get() 
     if df_city2 is not None:
         title_city_part += f' and {city2_var.get()}'
 
-    title_data_type_part = "Snow Depth"if data_type == "snow_depth" else "Temperature" if data_type == "temperature_2m" else data_type.capitalize()
-
-    ax.set_title(f'{title_data_type_part} in {title_city_part} from {start_date.strftime("%Y-%m-%d")} to {end_date.strftime("%Y-%m-%d")}')
-    ax.legend()
-    fig.autofmt_xdate()  
+    title_data_type_part = "Snow Depth"if data_type == "snow_depth" else "Temperature" if data_type == "temperature_2m" else data_type.capitalize() 
+    ax.set_title(f'{title_data_type_part} in {title_city_part} from {start_date.strftime("%Y-%m-%d")} to {end_date.strftime("%Y-%m-%d")}') # Tiek izveidots grafika nosaukums
+    
+    ax.legend() # Tiek pievienota grafika leģenda
+    fig.autofmt_xdate() # Funkcija, kas automātiski formatē datumu nosaukumus uz x ass, lai izskatītos labāk
     
     #print("Plotting data...") 
     
@@ -364,13 +399,14 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
 
     #print("Data plotted.")  
 
+# Funkcija, kas tiek izsaukta, kad lietotājs aizver aplikāciju
 def on_close():
-    app.quit()
-    app.destroy()
-    logging.info("Application closed")
+    app.quit() # Aizver aplikāciju
+    app.destroy() # Izdzēš aplikācijas logu
+    logging.info("Application closed") # Ierakstām log failā, ka aplikācija ir aizvērta
 
-initialize_variables()
-top_frame, graph_frame, controls_frame, info_frame, city_selection_frame  = setup_layout(app)
-controls(top_frame, controls_frame)
-app.protocol("WM_DELETE_WINDOW", on_close)
-app.mainloop()
+initialize_variables() # Definējam globālos mainīgos
+top_frame, graph_frame, controls_frame, info_frame, city_selection_frame  = setup_layout(app) # Izveidojam aplikācijas loga izkārtojumu
+controls(top_frame, controls_frame) # Izveidojam aplikācijas kontrolieru rāmīti
+app.protocol("WM_DELETE_WINDOW", on_close) # Izsauc funkciju, kas tiek izsaukta, kad lietotājs aizver aplikāciju
+app.mainloop() # Izsauc aplikāciju
