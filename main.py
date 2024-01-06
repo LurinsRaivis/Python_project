@@ -22,15 +22,15 @@ logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s:
 
 # Ielādējam pilsētu datus no JSON faila
 with open('cities.json', 'r') as file:
-    cities = json.load(file)
+    cities = json.load(file) 
 
 # Iestatām pieprasījumu kešatmiņu
-cache_session = requests_cache.CachedSession('.cache', expire_after=-1)
-retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
-openmeteo = openmeteo_requests.Client(session=retry_session)
+cache_session = requests_cache.CachedSession('.cache', expire_after=-1) # Kešatmiņa tiek saglabāta .cache direktorijā
+retry_session = retry(cache_session, retries=5, backoff_factor=0.2) # Pieprasījumi tiek atkārtoti 5 reizes, ja tie neizdodas
+openmeteo = openmeteo_requests.Client(session=retry_session) # Pieprasījumi tiek veikti ar retry_session
 
 # Iestatām pieprasījumu URL
-url = "https://archive-api.open-meteo.com/v1/archive"
+url = "https://archive-api.open-meteo.com/v1/archive" 
 
 # Iestatām izskatu
 ctk.set_appearance_mode("System") 
@@ -38,12 +38,12 @@ ctk.set_default_color_theme("green")
 
 # Izveidojam logu
 app = ctk.CTk()
-app.title("Historical Weather Data Tool")
-app.attributes('-fullscreen', True)
+app.title("Historical Weather Data Tool") 
+app.attributes('-fullscreen', True) # Iestatām logu pilnekrāna režīmā
 
 # Definējam globālos mainīgos
 global canvas_widget, df
-canvas_widget = None
+canvas_widget = None 
 df = None
 
 # Funkcija, kas ļauj lietotājam pārslēgties starp pilnekrāna un loga režīmu
@@ -355,47 +355,50 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
     
     #print("Plotting data...") 
     
+    # Funkcija, kas izrēķina dažādu statistiku par laikapstākļiem dotajā periodā
     def compute_city_stats(df, city_name, data_type, start_date, end_date):
         info_text = f"City: {city_name}\n"
             
-        period_code, period_label, smtng_rndm = compute_time_period(df)
-        df_agg = df.resample(period_code, on='date').mean()
-        df_agg_sum = df.resample(period_code, on='date').sum()
+        period_code, period_label, smtng_rndm = compute_time_period(df) # Jauneim mainīgajiem tiek dotas vērtības no compute_time_period funkcijas
+        df_agg = df.resample(period_code, on='date').mean() # Funkcija kas paŗveido dataframe, un izrēķina vidējo vērtību dotajā periodā
+        df_agg_sum = df.resample(period_code, on='date').sum() # Funkcija kas paŗveido dataframe, un izrēķina kopējo vērtību dotajā periodā
             
         if data_type == 'temperature_2m':
-            hottest_temp = df_agg[data_type].max()
-            coldest_temp = df_agg[data_type].min()
-            hottest_period = format_period(df_agg[data_type].idxmax(), period_label)
-            coldest_period = format_period(df_agg[data_type].idxmin(), period_label)
-            average_temp = df_agg[data_type].mean()
+            hottest_temp = df_agg[data_type].max() # Mainīgais, kas satur maksimālo datu tipa vērtību noteiktā paeriodā
+            coldest_temp = df_agg[data_type].min() # Mainīgais, kas satur minimālo datu tipa vērtību noteiktā paeriodā
+            hottest_period = format_period(df_agg[data_type].idxmax(), period_label) # Mainīgais, kas satur laika periodu, kurā ir maksimālā datu tipa vērtība
+            coldest_period = format_period(df_agg[data_type].idxmin(), period_label) # Mainīgais, kas satur laika periodu, kurā ir minimālā datu tipa vērtība
+            average_temp = df_agg[data_type].mean() # Mainīgais, kas satur vidējo datu tipa vērtību noteiktā paeriodā
 
+            # Teksts, kas tiek pievienots info_label un satur dažādu statistiku par laikapstākļiem dotajā periodā
             info_text += f" Hottest {period_label}: {hottest_period} - Average Temperature: {hottest_temp:.2f}°C\n" \
                         f" Coldest {period_label}: {coldest_period} - Average Temperature: {coldest_temp:.2f}°C\n" \
                         f' Average Temperature in this period: {average_temp:.2f}°C\n'
 
-        elif data_type == 'snow_depth':
+        elif data_type == 'snow_depth': # Ja dati ir par sniega biezumu, tad tiek aprēķināta vidējā sniega biezuma vērtība
             average_snow_depth = df_agg[data_type].mean()
             info_text += f'Average Snow Depth in this period: {average_snow_depth:.2f} cm\n'
 
-        elif data_type == 'precipitation':
+        elif data_type == 'precipitation': # Ja dati ir par nokrišņu daudzumu, tad tiek aprēķināts kopējais nokrišņu daudzums
             total_precipitation = df_agg_sum[data_type].sum()
             info_text += f'Total Precipitation in this period: {total_precipitation:.2f} mm\n'
 
-        return info_text
+        return info_text # Funkcija atgriež tekstu, kas satur dažādu statistiku par laikapstākļiem dotajā periodā
 
-    info_texts = []
-    if df_city1 is not None:
+    info_texts = [] # Mainīgais, kas satur tekstu, kas tiek pievienots info_label un satur dažādu statistiku par laikapstākļiem dotajā periodā
+    
+    if df_city1 is not None: # Ja ir iegūti dati par pirmo pilsētu, tad tiek izsaukta funkcija, kas aprēķina dažādu statistiku par laikapstākļiem dotajā periodā
         info_texts.append(compute_city_stats(df_city1, city_var.get(), data_type, start_date, end_date))
-    if df_city2 is not None:
+    if df_city2 is not None: 
         info_texts.append(compute_city_stats(df_city2, city2_var.get(), data_type, start_date, end_date))
 
-    combined_info_text = "\n".join(info_texts)
-    info_label.configure(text=combined_info_text)
+    combined_info_text = "\n".join(info_texts) # Apvieno tekstu, kas satur dažādu statistiku par laikapstākļiem dotajā periodā
+    info_label.configure(text=combined_info_text) # Pievieno šo tekstu aplikācijas logam
 
-    canvas = FigureCanvasTkAgg(fig, master=graph_frame)
-    canvas_widget = canvas.get_tk_widget()
-    canvas_widget.pack(side='bottom', fill='both', expand=True)
-    canvas.draw()
+    canvas = FigureCanvasTkAgg(fig, master=graph_frame) # Canvas mainīgais, satur grafika rāmīti, kas tiks ievietots graph_frame rāmītī
+    canvas_widget = canvas.get_tk_widget() # Mainīgajam canvas_widget piešķiram grafika rāmīti
+    canvas_widget.pack(side='bottom', fill='both', expand=True) # Šim mainīgajam tiek definēta atrašanās vieta un izmērs
+    canvas.draw() # Attēlo grafiku
 
     #print("Data plotted.")  
 
