@@ -1,4 +1,4 @@
-#   Importējam vajadzīgās bibliotēkas
+# Importējam vajadzīgās bibliotēkas
 import customtkinter as ctk
 from tkcalendar import Calendar
 from datetime import datetime
@@ -12,7 +12,7 @@ import requests_cache
 from retry_requests import retry
 from tkinter.filedialog import asksaveasfilename
 import logging
-import tkinter.font as tkFont
+import tkinter.font as tkFont 
 import calendar 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -148,6 +148,12 @@ def controls(top_frame, controls_frame):
 
 # Funkcija, kas pieņem lietotāja ievadītos datus un izsauc funkciju, kas pieprasa datus no API
 def fetch_data():
+    """
+    Iegūst laikapstākļu datus no OpenMeteo API.
+
+    Returns:
+        None
+    """
     global df_city1, df_city2
     city1 = city_var.get() # Pirmās pilsētas nosaukums, kas iegūts no lietotāja
     city2 = city2_var.get() # Otrās pilsētas nosaukums, kas iegūts no lietotāja
@@ -162,7 +168,15 @@ def fetch_data():
 
     # Funkcija, kas pieprasa datus no API
     def fetch_city_data(city):
-        
+        """
+        Iegūst laikapstākļu datus no OpenMeteo API par noteiktu pilsētu.
+
+        Args:
+            city (str): Pilsētas nosaukums, kuras datus vēlamies iegūt.
+
+        Returns:
+            pandas.DataFrame or None: Dati, kas iegūti no API, vai None, ja pieprasījums neizdodas.
+        """
         if city and city in cities: # Pārbauda, vai pilsēta ir sarakstā (cities.json)
             latitude = cities[city]["latitude"] # Pilsētas koordinātes, kas iegūtas no cities.json
             longitude = cities[city]["longitude"] 
@@ -234,6 +248,21 @@ def download_csv():
 
 #Funkcija, kas apstrādā un attēlo datus
 def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, info_label):
+    """
+    Apstrādā un attēlo datus.
+
+    Args:
+        df_city1 (DataFrame): 1. pilsētas dati.
+        df_city2 (DataFrame): 2. pilsētas dati.
+        data_type (str): Datus tips, ko lietotājs vēlas attēlot (temperature_2m, snow_depth vai precipitation)
+        start_date (str): Sākuma datums.
+        end_date (str): Beigu datums.
+        info_label (Label): Aplikācijas logs, kurā tiek attēlots teksts, kas satur dažādu statistiku par laikapstākļiem dotajā periodā.
+
+    Returns:
+        None
+    """
+
     global canvas_widget # Definējam globālo mainīgo canvas_widget, kas satur grafika rāmīti
     global df # Definējam globālo mainīgo df, kas satur datus
 
@@ -289,7 +318,18 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
 
     # Funkcija, kas attēlo datus
     def plot_city_data(df, city_name, plot_color, plot_type):
-        
+        """
+        Attēlo datus balstoties uz lietotāja ievadītajiem parametriem.
+
+        Parameters:
+        df (DataFrame): Dati, kas tiks attēloti.
+        city_name (str): Pilsētas nosaukums, kuras dati tiks attēloti.
+        plot_color (str): Krāsa, kādā tiks attēloti dati.
+        plot_type (str): Grafika tips, kā tiks attēloti dati.
+
+        Returns:
+        None
+        """
         if df is None: # Pārbauda, vai ir iegūti dati
             return
 
@@ -357,6 +397,19 @@ def process_and_plot_data(df_city1, df_city2, data_type, start_date, end_date, i
     
     # Funkcija, kas izrēķina dažādu statistiku par laikapstākļiem dotajā periodā
     def compute_city_stats(df, city_name, data_type, start_date, end_date):
+        """
+        Izrēķina un atgriež statistiku par laikasptākļiem noteiktajā pilsētā un periodā
+
+        Parameters:
+        - df (pandas.DataFrame): Dataframe, kas satur datus.
+        - city_name (str): Pilsētas nosaukums.
+        - data_type (str): Laikapstākļu tips.
+        - start_date (str): Sākuma datums.
+        - end_date (str): Beigu datums.
+
+        Returns:
+        - info_text (str): Atgriež String, kas satur statistiku par laikapstākļiem.
+        """
         info_text = f"City: {city_name}\n"
             
         period_code, period_label, smtng_rndm = compute_time_period(df) # Jauneim mainīgajiem tiek dotas vērtības no compute_time_period funkcijas
