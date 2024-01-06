@@ -1243,3 +1243,16 @@
 2024-01-05 11:00:32,603:INFO:CSV file saved: C:/Users/raivu/OneDrive/Dators/WeatherData_Riga_20240105_110030.csv
 2024-01-05 11:19:53,468:INFO:Fetching data for city1: Kuldiga
 2024-01-05 11:19:56,294:INFO:CSV file saved: C:/Users/raivu/OneDrive/Dators/WeatherData_Kuldiga_20240105_111954.csv
+2024-01-07 00:38:23,859:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:38:24,248:ERROR:Error fetching data for Ogre: {'error': True, 'reason': "Parameter 'end_hourly' is out of allowed range from 1940-01-01 to 2024-01-06"}
+2024-01-07 00:38:24,291:ERROR:Error fetching data for Ventspils: {'error': True, 'reason': "Parameter 'end_hourly' is out of allowed range from 1940-01-01 to 2024-01-06"}
+2024-01-07 00:38:35,499:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:38:39,950:INFO:CSV file saved: C:/Users/raivu/OneDrive/Dators/WeatherData_Ogre_and_Ventspils_20240107_003837.csv
+2024-01-07 00:39:07,782:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:39:55,981:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:40:42,401:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:40:46,867:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:41:53,270:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:41:59,010:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:42:09,774:INFO:Fetching data for city1: Ogre and city2: Ventspils
+2024-01-07 00:42:11,886:INFO:Fetching data for city1: Ogre
