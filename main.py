@@ -6,15 +6,12 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import numpy as np
 import openmeteo_requests
 import requests_cache
 from retry_requests import retry
 from tkinter.filedialog import asksaveasfilename
 import logging
-import tkinter.font as tkFont 
 import calendar 
-import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Iestatām log failu
